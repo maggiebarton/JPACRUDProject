@@ -1,0 +1,3 @@
+rootProject.name = 'Covers'
+
+includeFlat 'JPACovers'
