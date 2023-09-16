@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="add.do" method="POST">
+		<label for="title">Title:</label>
+		<input type="text" name="title">
+		<br>
+		<label for="originalArtist">Original Artist:</label>
+		<input type="text" name="originalArtist">
+		<br>
+		<label for="songKey">Key:</label>
+		<input type="text" name="songKey" value="NA">
+		<br>
+		<label for="capo">Capo:</label>
+		<input type="text" name="capo" value="0">
+		<br>
+		<label for="status">Status:</label>
+		<input list="status" name="status">
+		<datalist id="status">
+			<option value="Mastered">
+			<option value="Practicing">
+			<option value="Not Started">
+		</datalist>
+		<br>
+		<label for="chordsURL">Link to Chords:</label>
+		<input type="text" name="chordsURL" value="none">
+		<br>
+		<input type="submit" value="Add Cover">
+	</form>
+
+</body>
+</html>

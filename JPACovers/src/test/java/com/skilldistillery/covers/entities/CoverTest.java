@@ -30,7 +30,7 @@ class CoverTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		cover = em.find(Cover.class, 1);
+		cover = new Cover();
 	}
 
 	@AfterEach
@@ -40,9 +40,18 @@ class CoverTest {
 	}
 
 	@Test
-	void test_Cover_mapping() {
+	void test_Cover_mapping_and_null_Integer_capo() {
+		cover = em.find(Cover.class, 1);
 		assertNotNull(cover);
 		assertEquals("Stand By Me", cover.getTitle());
+		assertNull(cover.getCapo());
+	}
+	
+	@Test
+	void test_null_URL() {
+		cover = em.find(Cover.class, 6);
+		assertNotNull(cover);
+		assertNull(cover.getChordsURL());
 	}
 
 }

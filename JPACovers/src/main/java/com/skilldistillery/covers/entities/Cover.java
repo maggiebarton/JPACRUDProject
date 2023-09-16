@@ -10,17 +10,37 @@ import javax.persistence.Id;
 
 @Entity
 public class Cover {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String title;
-	
+
 	@Column(name = "original_artist")
 	private String originalArtist;
 	
-	public Cover() {}
+	@Column(name = "song_key")
+	private String songKey;
+
+	private Integer capo;
+
+	private String status;
+
+	@Column(name = "chords_url")
+	private String chordsURL;
+
+	public Cover() {
+	}
+
+	public Cover(String title, String originalArtist, String status) {
+		super();
+		this.title = title;
+		this.originalArtist = originalArtist;
+		this.status = status;
+	}
+
+
 
 	public int getId() {
 		return id;
@@ -46,9 +66,44 @@ public class Cover {
 		this.originalArtist = originalArtist;
 	}
 
+	public String getSongKey() {
+		return songKey;
+	}
+
+	public void setSongKey(String songKey) {
+		this.songKey = songKey;
+	}
+
+	public Integer getCapo() {
+		return capo;
+	}
+
+	public void setCapo(Integer capo) {
+		this.capo = capo;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getChordsURL() {
+		return chordsURL;
+	}
+
+	public void setChordsURL(String chordsURL) {
+		this.chordsURL = chordsURL;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "Cover [id=" + id + ", title=" + title + ", originalArtist=" + originalArtist + "]";
+		return "Cover [id=" + id + ", title=" + title + ", originalArtist=" + originalArtist + ", songKey=" + songKey
+				+ ", capo=" + capo + ", status=" + status + ", chordsURL=" + chordsURL + "]";
 	}
 
 	@Override
@@ -67,7 +122,5 @@ public class Cover {
 		Cover other = (Cover) obj;
 		return id == other.id;
 	}
-	
-	
 
 }

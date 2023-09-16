@@ -10,6 +10,7 @@ public interface CoverDAO {
 	List<Cover> findAll();
 	Cover create (Cover cover);
 	Cover update (Cover cover);
-	boolean deleteById (int id);
+	boolean delete (int id);
+	List<Cover> findByStatus(String status);
 
 }
