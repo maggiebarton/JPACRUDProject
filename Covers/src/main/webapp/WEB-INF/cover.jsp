@@ -24,7 +24,7 @@
 				<h1 class="text-light" id="topPadding">${cover.title}-
 					${cover.originalArtist}</h1>
 
-				<ul class="list-group" style="width: 18em;">
+				<ul class="list-group">
 					<li class="list-group-item"><strong>ID: </strong>${cover.id}</li>
 					<li class="list-group-item"><strong>Key: </strong>${cover.songKey}</li>
 					<li class="list-group-item"><strong>Capo: </strong>${cover.capo}</li>

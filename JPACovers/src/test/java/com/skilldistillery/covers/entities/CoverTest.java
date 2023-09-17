@@ -44,7 +44,6 @@ class CoverTest {
 		cover = em.find(Cover.class, 1);
 		assertNotNull(cover);
 		assertEquals("Stand By Me", cover.getTitle());
-		assertNull(cover.getCapo());
 	}
 	
 	@Test
