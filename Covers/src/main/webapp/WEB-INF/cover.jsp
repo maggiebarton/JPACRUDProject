@@ -12,26 +12,42 @@
 <body class="bg-image img-fluid" id="pageBackground">
 	<jsp:include page="navbar.jsp" />
 	<div class="container">
-		<h1 class="text-light" id="topPadding">${cover.title}-
-			${cover.originalArtist}</h1>
 
-		<ul class="list-group" style="width: 18em;">
-			<li class="list-group-item"><strong>ID: </strong>${cover.id}</li>
-			<li class="list-group-item"><strong>Key: </strong>${cover.songKey}</li>
-			<li class="list-group-item"><strong>Capo: </strong>${cover.capo}</li>
-			<li class="list-group-item"><strong>Status: </strong>${cover.status}</li>
-			<li class="list-group-item"><c:choose>
-					<c:when test="${empty cover.chordsURL}">
-					<strong><a target="_blank" href="https://www.google.com/search?q=<c:out value="${cover.title } ${cover.originalArtist}"/> chords">View Chords </a></strong>
-					</c:when>
-					<c:otherwise>
-						<strong><a target="_blank" href="${cover.chordsURL}">View Chords</a></strong>
-					</c:otherwise>
-				</c:choose></li>
-		</ul>
-		<br> <a href="update.do?id=${cover.id}" class="btn btn-success">Update
-			Cover</a> <a href="delete.do?id=${cover.id}" class="btn btn-danger">Delete
-			Cover</a>
+		<c:choose>
+			<c:when test="${empty cover}">
+			<h1 class="text-light" id="topPadding">Search Results</h1>
+				<p class="lead text-danger">No covers matched your search.</p><br>
+					<a href="home.do" class="btn btn-success">Back to Home</a>
+			</c:when>
+			<c:otherwise>
+
+				<h1 class="text-light" id="topPadding">${cover.title}-
+					${cover.originalArtist}</h1>
+
+				<ul class="list-group" style="width: 18em;">
+					<li class="list-group-item"><strong>ID: </strong>${cover.id}</li>
+					<li class="list-group-item"><strong>Key: </strong>${cover.songKey}</li>
+					<li class="list-group-item"><strong>Capo: </strong>${cover.capo}</li>
+					<li class="list-group-item"><strong>Status: </strong>${cover.status}</li>
+					<li class="list-group-item"><c:choose>
+							<c:when test="${empty cover.chordsURL}">
+								<strong><a target="_blank"
+									href="https://www.google.com/search?q=<c:out value="${cover.title } ${cover.originalArtist}"/> chords">View
+										Chords </a></strong>
+							</c:when>
+							<c:otherwise>
+								<strong><a target="_blank" href="${cover.chordsURL}">View
+										Chords</a></strong>
+							</c:otherwise>
+						</c:choose></li>
+				</ul>
+				<br>
+				<a href="update.do?id=${cover.id}" class="btn btn-success">Update
+					Cover</a>
+				<a href="delete.do?id=${cover.id}" class="btn btn-danger">Delete
+					Cover</a>
+			</c:otherwise>
+		</c:choose>
 	</div>
 	<jsp:include page="bootstrapScript.jsp" />
 </body>
