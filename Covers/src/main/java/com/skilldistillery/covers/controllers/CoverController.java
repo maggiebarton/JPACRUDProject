@@ -21,7 +21,7 @@ public class CoverController {
 	@RequestMapping(path = { "/", "home.do" })
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("covers", dao.findAll());
+		mv.addObject("covers", dao.findByStatus("Practicing"));
 		mv.setViewName("home");
 		return mv;
 	}
@@ -32,6 +32,14 @@ public class CoverController {
 		Cover cover = dao.findById(id);
 		mv.addObject("cover", cover);
 		mv.setViewName("cover");
+		return mv;
+	}
+	
+	@RequestMapping(path = "viewAll.do")
+	public ModelAndView viewAllCovers() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("covers", dao.findAll());
+		mv.setViewName("covers");
 		return mv;
 	}
 
@@ -82,6 +90,20 @@ public class CoverController {
 		mv.addObject("practicing", dao.findByStatus("Practicing"));
 		mv.addObject("mastered", dao.findByStatus("Mastered"));
 		mv.setViewName("coversByStatus");
+		return mv;
+	}
+	
+	@RequestMapping(path = "getKey.do")
+	public ModelAndView coversByKey() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("A", dao.findByKey("A"));
+		mv.addObject("B", dao.findByKey("B"));
+		mv.addObject("C", dao.findByKey("C"));
+		mv.addObject("D", dao.findByKey("D"));
+		mv.addObject("E", dao.findByKey("E"));
+		mv.addObject("F", dao.findByKey("F"));
+		mv.addObject("G", dao.findByKey("G"));
+		mv.setViewName("coversByKey");
 		return mv;
 	}
 

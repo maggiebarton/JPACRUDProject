@@ -6,16 +6,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Maggie's Covers</title>
+<title>Maggie Covers Songs</title>
 <jsp:include page="bootstrapHead.jsp" />
 </head>
-<body>
+<body class="bg-image" id="mainBackground">
 	<jsp:include page="navbar.jsp" />
-	<h1>Maggie Covers Songs</h1>
-	<c:forEach var="cover" items="${covers}">
-		<a href="getCover.do?id=${cover.id}" ${cover}>${cover.title}</a>
-	</c:forEach>
-	<a href="add.html">Add Cover</a>
+	<div class="container">
+		<div class="row float-lg-end" id="topPadding">
+			<h3 class="text-light">Currently Practicing</h3>
+			<div class="card bg-body-tertiary float-lg-end" style="width: auto;">
+				<c:forEach var="cover" items="${covers}">
+					<div class="card-body">
+						<h5 class="card-title">${cover.title}</h5>
+						<p class="card-text">
+							<strong>Original Artist:</strong> ${cover.originalArtist}<br>
+							<strong>Key:</strong> ${cover.songKey}<br>
+						</p>
+						<a href="getCover.do?id=${cover.id}" class="btn btn-success">View
+							Details</a>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
+	</div>
 	<jsp:include page="bootstrapScript.jsp" />
 </body>
 </html>

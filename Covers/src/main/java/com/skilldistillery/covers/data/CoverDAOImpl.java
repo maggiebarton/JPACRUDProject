@@ -81,8 +81,15 @@ public class CoverDAOImpl implements CoverDAO {
 	@Override
 	public List<Cover> findByStatus(String status) {
 		//select * from cover where status like '%Mastered%';
-		String jpql = "select c from Cover c where c.status = :status";
-		List<Cover> covers = em.createQuery(jpql, Cover.class).setParameter("status", status).getResultList();
+		String jpql = "select c from Cover c where c.status like :status";
+		List<Cover> covers = em.createQuery(jpql, Cover.class).setParameter("status", "%" + status + "%").getResultList();
+		return covers;
+	}
+
+	@Override
+	public List<Cover> findByKey(String songKey) {
+		String jpql = "select c from Cover c where c.songKey like :songKey";
+		List<Cover> covers = em.createQuery(jpql, Cover.class).setParameter("songKey", songKey + "%").getResultList();		
 		return covers;
 	}
 

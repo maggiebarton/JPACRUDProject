@@ -12,5 +12,6 @@ public interface CoverDAO {
 	Cover update (Cover cover);
 	boolean delete (int id);
 	List<Cover> findByStatus(String status);
+	List<Cover> findByKey(String songKey);
 
 }

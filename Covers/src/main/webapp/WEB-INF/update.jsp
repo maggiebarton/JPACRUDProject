@@ -6,34 +6,49 @@
 <head>
 <meta charset="UTF-8">
 <title>Update Cover</title>
+<jsp:include page="bootstrapHead.jsp" />
 </head>
-<body>
-	<form action="updateCover.do" method="POST">
+<body class="bg-image img-fluid" id="pageBackground">
+	<jsp:include page="navbar.jsp" />
+	<div class="container">
+	<h1 class="text-light" id="topPadding">Update Cover</h1><br>
+		<form action="updateCover.do" method="POST" class="row g-3 bg-light" style="padding: 10px;">
 		<input type="hidden" name="id" value="${cover.id}">
-		<label for="title">Title:</label>
-		<input type="text" name="title" value="${cover.title}">
-		<br>
-		<label for="originalArtist">Original Artist:</label>
-		<input type="text" name="originalArtist" value="${cover.originalArtist}">
-		<br>
-		<label for="songKey">Key:</label>
-		<input type="text" name="songKey" value="${cover.songKey}">
-			<br>
-		<label for="capo">Capo:</label>
-		<input type="text" name="capo" value="${cover.capo}">
-		<br>
-		<label for="status">Status:</label>
-		<input list="status" name="status">
-		<datalist id="status">
-			<option value="Mastered">
-			<option value="Practicing">
-			<option value="Not Started">
-		</datalist>
-		<br>
-		<label for="chordsURL">Link to Chords:</label>
-		<input type="text" name="chordsURL" value="${cover.chordsURL}"> <br>
-		<input type="submit" value="Update Cover">
-	</form>
+			<div class="col-md-6">
+				<label for="title" class="form-label">Title</label>
+				<input type="text" class="form-control" name="title" value="${cover.title}">
+			</div>
+			<div class="col-md-6">
+				<label for="originalArtist" class="form-label">Original Artist</label>
+				<input type="text" class="form-control" name="originalArtist" value="${cover.originalArtist}">
+			</div>
 
+			<div class="col-md-2">
+				<label for="songKey" class="form-label">Key</label>
+				<input type="text" class="form-control" name="songKey" value="${cover.songKey}">
+			</div>
+			<div class="col-md-2">
+				<label for="capo" class="form-label">Capo</label>
+				<input type="text" class="form-control" name="capo" value="${cover.capo}">
+			</div>
+			<div class="col-md-4">
+				<label for="status" class="form-label">Status</label>
+				<select name="status" class="form-select">
+					<option selected>Choose...</option>
+					<option>Not Started</option>
+					<option>Practicing</option>
+					<option>Mastered</option>
+				</select>
+			</div>
+			<div class="col-12">
+				<label for="chordsURL" class="form-label">Link to Chords:</label>
+				<input type="text" class="form-control" name="chordsURL" value="${cover.chordsURL}">
+			</div>
+			<div class="col-12">
+				<button type="submit" class="btn btn-success">Update Cover</button>
+			</div>
+		</form>
+	</div>
+	<jsp:include page="bootstrapScript.jsp" />
 </body>
 </html>

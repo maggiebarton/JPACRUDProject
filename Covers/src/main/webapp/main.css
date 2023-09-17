@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+#topPadding {
+	padding-top: 5%;
+}
+
+#mainBackground {
+	background-image: url('images/bgClear.png');
+
+}
+
+#pageBackground {
+	background-image: url('images/bgBlur.png');
+
+}
+
+/* Show in Large desktops and laptops */
+@media (min-width: 1200px) {
+
+.bg-image {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+}
+
+/*Hide in Other Small Devices */
+
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+      .bg-image {
+        background-image: none;
+    }
+
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+
+          .bg-image {
+        background-image: none;
+    }
+
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+
+          .bg-image {
+        background-image: none;
+    }
+
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+
+          .bg-image {
+        background-image: none;
+    }
+
+}
+

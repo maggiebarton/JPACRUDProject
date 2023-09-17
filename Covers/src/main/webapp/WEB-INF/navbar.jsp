@@ -10,17 +10,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="home.do">Home</a>
+          <a class="nav-link active" aria-current="page" href="add.html">Add Cover</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             View Covers
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">By Key</a></li>
+            <li><a class="dropdown-item" href="getKey.do">By Key</a></li>
             <li><a class="dropdown-item" href="getStatus.do">By Status</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">View All</a></li>
+            <li><a class="dropdown-item" href="viewAll.do">View All</a></li>
           </ul>
         </li>
       </ul>
