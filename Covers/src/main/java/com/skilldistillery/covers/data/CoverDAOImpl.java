@@ -15,7 +15,7 @@ import com.skilldistillery.covers.entities.Cover;
 @Service
 @Transactional
 public class CoverDAOImpl implements CoverDAO {
-	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPACovers");
+	
 	@PersistenceContext
 	private EntityManager em;
 
