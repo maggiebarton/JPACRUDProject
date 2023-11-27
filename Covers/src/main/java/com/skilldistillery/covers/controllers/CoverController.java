@@ -5,10 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -20,7 +21,7 @@ public class CoverController {
 	@Autowired
 	private CoverDAO dao;
 
-	@RequestMapping(path = { "/", "home.do" })
+	@GetMapping(path = { "/", "home.do" })
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("covers", dao.findByStatus("Practicing"));
@@ -28,7 +29,7 @@ public class CoverController {
 		return mv;
 	}
 
-	@RequestMapping(path = "getCover.do")
+	@GetMapping(path = "getCover.do")
 	public ModelAndView coverById(int id) {
 		ModelAndView mv = new ModelAndView();
 		Cover cover = dao.findById(id);
@@ -37,7 +38,7 @@ public class CoverController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "viewAll.do")
+	@GetMapping(path = "viewAll.do")
 	public ModelAndView viewAllCovers() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("covers", dao.findAll());
@@ -68,7 +69,7 @@ public class CoverController {
 		
 	}
 	
-	@RequestMapping (path ="update.do")
+	@GetMapping (path ="update.do")
 	public ModelAndView update(int id) {
 		ModelAndView mv = new ModelAndView();
 		Cover cover = dao.findById(id);
@@ -85,7 +86,7 @@ public class CoverController {
 		
 	}
 	
-	@RequestMapping(path = "getStatus.do")
+	@GetMapping(path = "getStatus.do")
 	public ModelAndView coversByStatus() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("notStarted", dao.findByStatus("Not Started"));
@@ -95,7 +96,7 @@ public class CoverController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "getKey.do")
+	@GetMapping(path = "getKey.do")
 	public ModelAndView coversByKey() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("A", dao.findByKey("A"));

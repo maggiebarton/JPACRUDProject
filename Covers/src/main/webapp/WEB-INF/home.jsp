@@ -12,9 +12,9 @@
 <body class="bg-image" id="mainBackground">
 	<jsp:include page="navbar.jsp" />
 	<div class="container">
-		<div class="row float-lg-end" id="topPadding">
+		<div class="row float-end" id="topPadding">
 			<h3 class="text-light">Currently Practicing</h3>
-			<div class="card bg-body-tertiary float-lg-end"">
+			<div class="card bg-body-tertiary float-lg-end">
 				<c:forEach var="cover" items="${covers}">
 					<div class="card-body">
 						<h5 class="card-title">${cover.title}</h5>
