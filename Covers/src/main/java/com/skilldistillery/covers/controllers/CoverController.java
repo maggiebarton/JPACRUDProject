@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -43,7 +45,7 @@ public class CoverController {
 		return mv;
 	}
 
-	@RequestMapping(path = "add.do", method = RequestMethod.POST)
+	@PostMapping(path = "add.do")
 	public ModelAndView add(Cover cover, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
 		dao.create(cover);
@@ -52,14 +54,14 @@ public class CoverController {
 		return mv;
 	}
 
-	@RequestMapping(path = "addCover.do", method = RequestMethod.GET)
+	@GetMapping(path = "addCover.do")
 	public ModelAndView coverAdded(Cover cover) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("cover");
 		return mv;
 	}
 	
-	@RequestMapping(path = "delete.do", method = RequestMethod.GET)
+	@GetMapping(path = "delete.do")
 	public String delete (int id, Model model) {
 		model.addAttribute("cover", dao.delete(id));
 		return "status";
@@ -76,7 +78,7 @@ public class CoverController {
 		
 	}
 	
-	@RequestMapping (path ="updateCover.do", method=RequestMethod.POST)
+	@PostMapping (path ="updateCover.do")
 	public String update(Cover cover, Model model) {
 		model.addAttribute("cover", dao.update(cover));
 		return "cover";
